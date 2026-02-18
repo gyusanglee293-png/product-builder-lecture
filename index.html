@@ -76,6 +76,14 @@
       }
     ]
     </script>
+    <script src="https://t1.kakaocdn.net/kakao_js_sdk/2.7.0/kakao.min.js" crossorigin="anonymous"></script>
+    <script>
+      window.addEventListener('load', function() {
+        if (typeof Kakao !== 'undefined' && !Kakao.isInitialized()) {
+          Kakao.init('88950d4d5e7d581c7e90c8686d0b30d8');
+        }
+      });
+    </script>
 </head>
 <body>
     <header>
@@ -97,6 +105,24 @@
                 <div class="number" aria-live="polite"></div>
             </div>
             <button id="generate-btn">번호 생성하기</button>
+            
+            <div class="share-container">
+                <p>행운을 친구에게 공유해보세요!</p>
+                <div class="share-buttons">
+                    <button id="share-kakao" class="share-btn kakao" title="카카오톡 공유">
+                        <img src="https://developers.kakao.com/assets/img/about/logos/kakaotalksharing/kakaotalk_sharing_btn_medium.png" alt="Kakao">
+                    </button>
+                    <button id="share-facebook" class="share-btn facebook" title="페이스북 공유">
+                        <span>f</span>
+                    </button>
+                    <button id="share-twitter" class="share-btn twitter" title="X 공유">
+                        <span>X</span>
+                    </button>
+                    <button id="share-link" class="share-btn link" title="링크 복사">
+                        <span class="icon-link">🔗</span>
+                    </button>
+                </div>
+            </div>
         </section>
 
         <section class="container info-section">

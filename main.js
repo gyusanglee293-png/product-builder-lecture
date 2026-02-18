@@ -48,3 +48,56 @@ generateBtn.addEventListener('click', () => {
         }
     });
 });
+
+// Sharing Logic
+const shareKakao = document.getElementById('share-kakao');
+const shareFacebook = document.getElementById('share-facebook');
+const shareTwitter = document.getElementById('share-twitter');
+const shareLink = document.getElementById('share-link');
+
+const siteUrl = window.location.href;
+const siteTitle = '로또 번호 생성기 - 행운의 숫자를 뽑아보세요!';
+
+shareKakao.addEventListener('click', () => {
+    if (typeof Kakao !== 'undefined' && Kakao.isInitialized()) {
+        Kakao.Share.sendDefault({
+            objectType: 'feed',
+            content: {
+                title: siteTitle,
+                description: '무료로 추출하는 6개의 로또 번호! 지금 바로 확인해 보세요.',
+                imageUrl: 'https://gyusanglee293-png.github.io/product-builder-lecture/favicon.svg',
+                link: {
+                    mobileWebUrl: siteUrl,
+                    webUrl: siteUrl,
+                },
+            },
+            buttons: [
+                {
+                    title: '번호 뽑으러 가기',
+                    link: {
+                        mobileWebUrl: siteUrl,
+                        webUrl: siteUrl,
+                    },
+                },
+            ],
+        });
+    } else {
+        alert('카카오톡 공유를 일시적으로 사용할 수 없습니다.');
+    }
+});
+
+shareFacebook.addEventListener('click', () => {
+    window.open(`https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(siteUrl)}`, '_blank');
+});
+
+shareTwitter.addEventListener('click', () => {
+    window.open(`https://twitter.com/intent/tweet?text=${encodeURIComponent(siteTitle)}&url=${encodeURIComponent(siteUrl)}`, '_blank');
+});
+
+shareLink.addEventListener('click', () => {
+    navigator.clipboard.writeText(siteUrl).then(() => {
+        alert('링크가 복사되었습니다!');
+    }).catch(err => {
+        console.error('링크 복사 실패:', err);
+    });
+});
