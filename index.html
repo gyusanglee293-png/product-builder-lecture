@@ -19,24 +19,17 @@
     </script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>로또 번호 생성기 - 무료 행운의 숫자 번호 추출</title>
-    <meta name="description" content="매주 행운을 드리는 무료 로또 번호 생성기입니다. 클릭 한 번으로 무작위 당첨 번호를 추출하고 테마를 변경해 보세요.">
-    <meta name="keywords" content="로또번호생성기, 로또번호추출, 무료로또, 행운의숫자, 로또당첨번호">
+    <title>로또 번호 생성기 - 무료 행운의 숫자 번호 추출 및 당첨 번호 조합</title>
+    <meta name="description" content="2026년 최신 알고리즘을 반영한 무료 로또 번호 생성기입니다. 6개의 행운의 숫자를 즉시 추출하고, 무작위 번호 조합의 과학적 원리를 확인해 보세요.">
+    <meta name="keywords" content="로또번호생성기, 로또번호추출, 무료로또, 행운의숫자, 로또당첨번호, GEO최적화">
     <link rel="canonical" href="https://gyusanglee293-png.github.io/product-builder-lecture/">
     
     <!-- Open Graph / Facebook / Kakao -->
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://gyusanglee293-png.github.io/product-builder-lecture/">
-    <meta property="og:title" content="로또 번호 생성기 - 무료 행운의 숫자 번호 추출">
-    <meta property="og:description" content="매주 행운을 드리는 무료 로또 번호 생성기입니다. 클릭 한 번으로 무작위 당첨 번호를 추출해 보세요.">
+    <meta property="og:title" content="로또 번호 생성기 - AI 검색 최적화 무료 번호 추출">
+    <meta property="og:description" content="무작위 알고리즘으로 생성되는 6개의 행운의 숫자! 지금 바로 번호를 생성하고 당첨 기회를 잡으세요.">
     <meta property="og:image" content="https://gyusanglee293-png.github.io/product-builder-lecture/favicon.svg">
-
-    <!-- Twitter -->
-    <meta property="twitter:card" content="summary_large_image">
-    <meta property="twitter:url" content="https://gyusanglee293-png.github.io/product-builder-lecture/">
-    <meta property="twitter:title" content="로또 번호 생성기 - 무료 행운의 숫자 번호 추출">
-    <meta property="twitter:description" content="매주 행운을 드리는 무료 로또 번호 생성기입니다. 클릭 한 번으로 무작위 당첨 번호를 추출해 보세요.">
-    <meta property="twitter:image" content="https://gyusanglee293-png.github.io/product-builder-lecture/favicon.svg">
 
     <link rel="stylesheet" href="style.css">
     <link rel="icon" type="image/svg+xml" href="favicon.svg">
@@ -45,72 +38,119 @@
 
     <!-- Structured Data (JSON-LD) -->
     <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "SoftwareApplication",
-      "name": "로또 번호 생성기",
-      "operatingSystem": "Web",
-      "applicationCategory": "UtilitiesApplication",
-      "offers": {
-        "@type": "Offer",
-        "price": "0",
-        "priceCurrency": "KRW"
+    [
+      {
+        "@context": "https://schema.org",
+        "@type": "SoftwareApplication",
+        "name": "로또 번호 생성기",
+        "operatingSystem": "Web",
+        "applicationCategory": "UtilitiesApplication",
+        "offers": {
+          "@type": "Offer",
+          "price": "0",
+          "priceCurrency": "KRW"
+        },
+        "description": "무작위 로또 번호를 생성해 주는 무료 웹 도구입니다."
       },
-      "description": "무작위 로또 번호를 생성해 주는 무료 웹 도구입니다."
-    }
+      {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "로또 번호 생성기는 어떻게 작동하나요?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "본 생성기는 자바스크립트의 Math.random() 함수를 사용하여 1부터 45 사이의 숫자 중 중복되지 않는 6개의 숫자를 무작위로 추출합니다. 이는 통계적 독립성을 보장합니다."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "생성된 번호로 실제 당첨이 가능한가요?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "모든 번호 조합은 이론적으로 동일한 당첨 확률을 가집니다. 본 도구는 사용자에게 재미와 편의를 위해 무작위 조합을 제공하며, 실제 당첨을 보장하지는 않습니다."
+            }
+          }
+        ]
+      }
+    ]
     </script>
 </head>
 <body>
     <header>
-        <div class="theme-switch-wrapper">
+        <nav class="theme-switch-wrapper">
             <button id="theme-toggle">Dark Mode</button>
-        </div>
+        </nav>
     </header>
 
     <main>
-        <div class="container">
+        <section class="container">
             <h1>로또 번호 생성기</h1>
             <p class="subtitle">행운을 부르는 6개의 숫자를 지금 바로 확인해 보세요!</p>
-            <div class="lotto-numbers">
-                <div class="number"></div>
-                <div class="number"></div>
-                <div class="number"></div>
-                <div class="number"></div>
-                <div class="number"></div>
-                <div class="number"></div>
+            <div class="lotto-numbers" aria-label="생성된 로또 번호">
+                <div class="number" aria-live="polite"></div>
+                <div class="number" aria-live="polite"></div>
+                <div class="number" aria-live="polite"></div>
+                <div class="number" aria-live="polite"></div>
+                <div class="number" aria-live="polite"></div>
+                <div class="number" aria-live="polite"></div>
             </div>
             <button id="generate-btn">번호 생성하기</button>
-        </div>
+        </section>
+
+        <section class="container info-section">
+            <h2>로또 번호 생성 원리 및 가이드</h2>
+            <article>
+                <h3>1. 무작위 번호 추출 알고리즘</h3>
+                <p>본 서비스는 웹 표준 기술인 자바스크립트를 활용하여 매번 새로운 난수(Random Number)를 생성합니다. 1부터 45까지의 숫자 중 중복을 제외한 6개의 숫자를 공정하게 추출하여 사용자에게 제공합니다.</p>
+            </article>
+            <article>
+                <h3>2. 사용 방법</h3>
+                <p>'번호 생성하기' 버튼을 누르면 즉시 6개의 숫자가 화면에 표시됩니다. 각 숫자는 범위에 따라 노란색, 파란색, 빨간색 등으로 구분되어 시각적으로 확인하기 편리합니다.</p>
+            </article>
+        </section>
+
+        <section class="container faq-section">
+            <h2>자주 묻는 질문 (FAQ)</h2>
+            <div class="faq-item">
+                <p><strong>Q: 번호 생성은 무료인가요?</strong></p>
+                <p>A: 네, 본 서비스는 어떠한 비용이나 회원가입 없이 누구나 무료로 이용할 수 있습니다.</p>
+            </div>
+            <div class="faq-item">
+                <p><strong>Q: 생성된 번호를 저장할 수 있나요?</strong></p>
+                <p>A: 현재 버전은 일회성 생성을 지원합니다. 마음에 드는 번호가 있다면 메모해 두시거나 화면을 캡처하여 활용해 보세요.</p>
+            </div>
+        </section>
     </main>
 
     <footer>
-        <div class="container contact-section">
-            <h2>Contact Us</h2>
+        <section class="container contact-section">
+            <h2>문의 및 제휴</h2>
             <form action="https://formspree.io/f/mykdpzlg" method="POST">
                 <div class="form-group">
-                    <label for="email">Your Email</label>
+                    <label for="email">이메일 주소</label>
                     <input type="email" id="email" name="email" required placeholder="example@email.com">
                 </div>
                 <div class="form-group">
-                    <label for="message">Partnership Inquiry</label>
-                    <textarea id="message" name="message" required placeholder="Tell us about your proposal..."></textarea>
+                    <label for="message">문의 내용</label>
+                    <textarea id="message" name="message" required placeholder="문의 사항이나 제휴 제안을 남겨주세요..."></textarea>
                 </div>
-                <button type="submit" id="submit-btn">Send Message</button>
+                <button type="submit" id="submit-btn">메시지 보내기</button>
             </form>
-        </div>
+        </section>
 
-        <div class="container disqus-section">
+        <section class="container disqus-section">
             <div id="disqus_thread"></div>
             <script>
-                (function() { // DON'T EDIT BELOW THIS LINE
+                (function() {
                 var d = document, s = d.createElement('script');
                 s.src = 'https://productbuilder-cltueawgnl.disqus.com/embed.js';
                 s.setAttribute('data-timestamp', +new Date());
                 (d.head || d.body).appendChild(s);
                 })();
             </script>
-            <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
-        </div>
+        </section>
     </footer>
     <script src="main.js"></script>
 </body>
