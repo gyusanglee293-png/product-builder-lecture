@@ -1,6 +1,6 @@
 :root {
     --bg-color: #f0f0f0;
-    --container-bg: transparent;
+    --container-bg: #fff;
     --text-color: #333;
     --number-bg: #fff;
     --number-border: #ccc;
@@ -21,9 +21,11 @@
 body {
     font-family: sans-serif;
     display: flex;
-    justify-content: center;
+    flex-direction: column;
     align-items: center;
     min-height: 100vh;
+    margin: 0;
+    padding: 20px;
     background-color: var(--bg-color);
     color: var(--text-color);
     transition: background-color 0.3s, color 0.3s;
@@ -33,13 +35,19 @@ body {
     text-align: center;
     padding: 2rem;
     background-color: var(--container-bg);
-    border-radius: 8px;
+    border-radius: 12px;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    width: 100%;
+    max-width: 600px;
+    margin-bottom: 20px;
 }
 
 .lotto-numbers {
     display: flex;
-    margin: 20px 0;
+    margin: 30px 0;
     justify-content: center;
+    flex-wrap: wrap;
+    gap: 10px;
 }
 
 .number {
@@ -51,26 +59,29 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    font-size: 24px;
-    margin: 0 5px;
-    color: #000; /* Numbers keep black text for better contrast on colored circles */
+    font-size: 20px;
+    font-weight: bold;
+    color: #000;
 }
 
 #generate-btn, #theme-toggle, #submit-btn {
-    padding: 10px 20px;
+    padding: 12px 24px;
     font-size: 16px;
+    font-weight: bold;
     cursor: pointer;
     background-color: var(--button-bg);
     color: var(--button-text);
     border: 1px solid var(--number-border);
-    border-radius: 4px;
-    margin: 5px;
+    border-radius: 8px;
+    transition: transform 0.1s;
+}
+
+#generate-btn:active {
+    transform: scale(0.95);
 }
 
 .contact-section {
-    margin-top: 40px;
-    max-width: 400px;
-    width: 90%;
+    max-width: 600px;
 }
 
 .form-group {
@@ -80,40 +91,35 @@ body {
 
 .form-group label {
     display: block;
-    margin-bottom: 5px;
+    margin-bottom: 8px;
     font-weight: bold;
 }
 
 .form-group input, .form-group textarea {
     width: 100%;
-    padding: 10px;
+    padding: 12px;
     border: 1px solid var(--number-border);
-    border-radius: 4px;
+    border-radius: 6px;
     background-color: var(--number-bg);
     color: var(--text-color);
     box-sizing: border-box;
 }
 
-.form-group textarea {
-    height: 100px;
-    resize: vertical;
-}
-
 #submit-btn {
     width: 100%;
-    margin-left: 0;
-    margin-right: 0;
     background-color: #4CAF50;
     color: white;
     border: none;
+    margin-top: 10px;
 }
 
-#submit-btn:hover {
-    background-color: #45a049;
+.disqus-section {
+    padding: 2rem;
 }
 
 .theme-switch-wrapper {
-    position: absolute;
+    position: fixed;
     top: 20px;
     right: 20px;
+    z-index: 1000;
 }
