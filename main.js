@@ -34,17 +34,22 @@ generateBtn.addEventListener('click', () => {
     const numbersArray = Array.from(lottoNumbers).sort((a, b) => a - b);
     numberDivs.forEach((div, index) => {
         div.textContent = numbersArray[index];
-        // Add color based on number range
+        // Soft pastel colors based on number range
         if (numbersArray[index] <= 10) {
-            div.style.backgroundColor = '#f9e45b'; // Yellow
+            div.style.backgroundColor = '#fff9c4'; // Pastel Yellow
+            div.style.borderColor = '#fbc02d';
         } else if (numbersArray[index] <= 20) {
-            div.style.backgroundColor = '#58b7e2'; // Blue
+            div.style.backgroundColor = '#e3f2fd'; // Pastel Blue
+            div.style.borderColor = '#64b5f6';
         } else if (numbersArray[index] <= 30) {
-            div.style.backgroundColor = '#dc635f'; // Red
+            div.style.backgroundColor = '#fce4ec'; // Pastel Pink
+            div.style.borderColor = '#f06292';
         } else if (numbersArray[index] <= 40) {
-            div.style.backgroundColor = '#888888'; // Gray
+            div.style.backgroundColor = '#f3e5f5'; // Pastel Purple
+            div.style.borderColor = '#ba68c8';
         } else {
-            div.style.backgroundColor = '#64c890'; // Green
+            div.style.backgroundColor = '#e8f5e9'; // Pastel Green
+            div.style.borderColor = '#81c784';
         }
     });
 });
